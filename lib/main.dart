@@ -1,3 +1,4 @@
+import 'package:dartflutter_despesas_pessoais/models/transaction.dart';
 import 'package:flutter/material.dart';
 void main() {
   runApp(const MyApp());
@@ -16,8 +17,19 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  // ignore: unused_field
+  final _transaction = [
+    Transaction(id: 'id1', title: 'title1', value: 10, date: DateTime.now()),
+    Transaction(id: 'id1', title: 'title1', value: 10, date: DateTime.now()),
+  ];
 
   @override
   Widget build(BuildContext context) {
