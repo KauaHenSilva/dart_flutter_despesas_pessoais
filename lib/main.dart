@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 
-void main(List<String> args) => runApp(const Main());
+void main() {
+  runApp(const MyApp());
+}
 
-class Main extends StatelessWidget {
-const Main({ Key? key }) : super(key: key);
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Despesas Pessoias",
+      title: 'Despesas Pessoais',
       theme: ThemeData.dark(),
       home: const MyHomePage(),
     );
@@ -21,12 +23,24 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Despesas Pessoais"),
-      ),
-      body: const Center(
-        child: Text("Inicio"),
-      ),
-    );
+        appBar: AppBar(
+          title: const Text("Olá"),
+        ),
+        body: const Column(
+          children: [
+            SizedBox(
+              width: double.infinity,
+              child: Card(
+                color: Colors.blue,
+                elevation: 5,
+                child: Text("Grafico"),
+              ),
+            ),
+            Card(
+              elevation: 5,
+              child: Text("Lista De Tranzações."),
+            )
+          ],
+        ));
   }
 }
