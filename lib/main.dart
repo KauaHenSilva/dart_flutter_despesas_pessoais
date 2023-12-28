@@ -1,5 +1,6 @@
 import 'package:dartflutter_despesas_pessoais/models/transaction.dart';
 import 'package:flutter/material.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -25,10 +26,11 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  // ignore: unused_field
-  final _transaction = [
-    Transaction(id: 'id1', title: 'title1', value: 10, date: DateTime.now()),
-    Transaction(id: 'id1', title: 'title1', value: 10, date: DateTime.now()),
+  final dados = [
+    Transaction(title: 'title', id: 'id', value: 14, date: DateTime.now()),
+    Transaction(title: 'title', id: 'id', value: 14, date: DateTime.now()),
+    Transaction(title: 'title', id: 'id', value: 14, date: DateTime.now()),
+    Transaction(title: 'title', id: 'id', value: 14, date: DateTime.now()),
   ];
 
   @override
@@ -37,17 +39,17 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: const Text("Despesas Pessoais"),
       ),
-      body: const Column(
+      body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Card(
-            elevation: 10,
-            child: Text("Olá"),
+          const Card(
+            child: Text("Text"),
           ),
-          Card(
-            elevation: 10,
-            child: Text("Olá Mundo"),
+          Column(
+            children: [
+              ...dados.map((e) => Card(child: Text(e.title)))
+            ],
           )
         ],
       ),
