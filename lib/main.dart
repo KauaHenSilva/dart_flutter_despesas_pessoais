@@ -48,7 +48,20 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           Column(
             children: [
-              ...dados.map((e) => Card(child: Text(e.title)))
+              ...dados.map(
+                (e) => Card(
+                  child: Row(
+                    children: [
+                      Container(
+                        child: Text(e.value.toString()),
+                      ),
+                      Column(
+                        children: [Text(e.title), Text(e.date.toString())],
+                      )
+                    ],
+                  ),
+                ),
+              ),
             ],
           )
         ],
