@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 void main() {
   runApp(const MyApp());
 }
@@ -10,7 +9,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Despesas Pessoais',
+      title: 'Flutter Demo',
       theme: ThemeData.dark(),
       home: const MyHomePage(),
     );
@@ -23,24 +22,23 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text("Olá"),
-        ),
-        body: const Column(
-          children: [
-            SizedBox(
-              width: double.infinity,
-              child: Card(
-                color: Colors.blue,
-                elevation: 5,
-                child: Text("Grafico"),
-              ),
-            ),
-            Card(
-              elevation: 5,
-              child: Text("Lista De Tranzações."),
-            )
-          ],
-        ));
+      appBar: AppBar(
+        title: const Text("Despesas Pessoais"),
+      ),
+      body: const Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Card(
+            elevation: 10,
+            child: Text("Olá"),
+          ),
+          Card(
+            elevation: 10,
+            child: Text("Olá Mundo"),
+          )
+        ],
+      ),
+    );
   }
 }
