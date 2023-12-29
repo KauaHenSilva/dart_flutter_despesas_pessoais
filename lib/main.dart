@@ -45,7 +45,6 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           const Card(child: Text("Ola")),
           Column(
@@ -78,15 +77,33 @@ class _MyHomePageState extends State<MyHomePage> {
                           ),
                           Text(
                             DateFormat('d MMM y').format(e.date),
-                            style: const TextStyle(
-                               color: Colors.grey
-                            ),
+                            style: const TextStyle(color: Colors.grey),
                           )
                         ],
                       )
                     ]),
                   ))
             ],
+          ),
+          Card(
+            child: Padding(
+              padding: const EdgeInsets.all(10),
+              child: Column(
+                children: [
+                  const TextField(decoration: InputDecoration(labelText: 'Titulo')),
+                  const TextField(decoration: InputDecoration(labelText: 'Valor'),),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 10),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        TextButton(onPressed: () {}, child: const Text('Adicionar')),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ),
           )
         ],
       ),
