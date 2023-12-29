@@ -27,8 +27,8 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   var dados = [
-    Transaction(title: 'title', id: 'id', value: 12, date: DateTime.now()),
-    Transaction(title: 'title', id: 'id', value: 12, date: DateTime.now()),
+    Transaction(id: 'id', title: 'title', value: 18.2, date: DateTime.now()),
+    Transaction(id: 'id', title: 'title', value: 18.0, date: DateTime.now())
   ];
 
   @override
@@ -38,44 +38,56 @@ class _MyHomePageState extends State<MyHomePage> {
         title: const Text("Despesas Pessoais"),
         backgroundColor: Colors.deepPurpleAccent,
       ),
+      bottomNavigationBar: const BottomAppBar(
+        height: 35,
+        shape: CircularNotchedRectangle(),
+      ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          const Card(
-            child: Text("data"),
-          ),
+          const Card(child: Text("Ola")),
           Column(
             children: [
               ...dados.map((e) => Card(
-                      child: Row(
-                    children: [
+                    child: Row(children: [
                       Container(
                           margin: const EdgeInsets.all(15),
                           padding: const EdgeInsets.all(10),
                           decoration: BoxDecoration(
                               border:
                                   Border.all(color: Colors.deepPurpleAccent),
-                              borderRadius: BorderRadius.circular(10)),
+                              borderRadius: BorderRadius.circular(15)),
                           child: Text(
                             e.value.toString(),
-                            style: const TextStyle(
-                                color: Colors.deepPurpleAccent,
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold),
+                            style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.deepPurpleAccent[100]),
                           )),
                       Column(
-                        children: [Text(e.title), Text(e.date.toString())],
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            e.title,
+                            style: const TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(
+                            e.date.toString(),
+                            style: const TextStyle(
+                               color: Colors.grey
+                            ),
+                          )
+                        ],
                       )
-                    ],
-                  )))
+                    ]),
+                  ))
             ],
           )
         ],
-      ),
-      bottomNavigationBar: const BottomAppBar(
-        height: 35,
-        shape: CircularNotchedRectangle(),
       ),
       floatingActionButtonLocation:
           FloatingActionButtonLocation.miniCenterDocked,
