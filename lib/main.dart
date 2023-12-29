@@ -26,11 +26,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final dados = [
-    Transaction(title: 'title', id: 'id', value: 14, date: DateTime.now()),
-    Transaction(title: 'title', id: 'id', value: 14, date: DateTime.now()),
-    Transaction(title: 'title', id: 'id', value: 14, date: DateTime.now()),
-    Transaction(title: 'title', id: 'id', value: 14, date: DateTime.now()),
+  var dados = [
+    Transaction(title: 'title', id: 'id', value: 12, date: DateTime.now()),
+    Transaction(title: 'title', id: 'id', value: 12, date: DateTime.now()),
   ];
 
   @override
@@ -38,38 +36,53 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Despesas Pessoais"),
+        backgroundColor: Colors.deepPurpleAccent,
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           const Card(
-            child: Text("Text"),
+            child: Text("data"),
           ),
           Column(
             children: [
-              ...dados.map(
-                (e) => Card(
-                  child: Row(
+              ...dados.map((e) => Card(
+                      child: Row(
                     children: [
                       Container(
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.black, width: 2)
-                        ),
-                        padding: const EdgeInsets.all(10),
-                        margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-                        child: Text(e.value.toString()),
-                      ),
+                          margin: const EdgeInsets.all(15),
+                          padding: const EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                              border:
+                                  Border.all(color: Colors.deepPurpleAccent),
+                              borderRadius: BorderRadius.circular(10)),
+                          child: Text(
+                            e.value.toString(),
+                            style: const TextStyle(
+                                color: Colors.deepPurpleAccent,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold),
+                          )),
                       Column(
                         children: [Text(e.title), Text(e.date.toString())],
                       )
                     ],
-                  ),
-                ),
-              ),
+                  )))
             ],
           )
         ],
+      ),
+      bottomNavigationBar: const BottomAppBar(
+        height: 35,
+        shape: CircularNotchedRectangle(),
+      ),
+      floatingActionButtonLocation:
+          FloatingActionButtonLocation.miniCenterDocked,
+      floatingActionButton: const FloatingActionButton(
+        onPressed: null,
+        shape: CircleBorder(),
+        child: Icon(Icons.add),
       ),
     );
   }
