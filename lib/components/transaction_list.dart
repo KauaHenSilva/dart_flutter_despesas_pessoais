@@ -10,8 +10,9 @@ class TransactionList extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 400,
-      child: SingleChildScrollView(
-        child: Column(
+      child: ListView.builder(
+        itemCount: transactions.length,
+        itemBuilder: (context, index) => Column(
           children: [
             ...transactions.map(
               (e) => Card(
