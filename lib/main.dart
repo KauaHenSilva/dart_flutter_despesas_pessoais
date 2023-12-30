@@ -1,3 +1,4 @@
+import 'package:dartflutter_despesas_pessoais/components/transaction_form.dart';
 import 'package:dartflutter_despesas_pessoais/components/transaction_list.dart';
 import 'package:dartflutter_despesas_pessoais/models/transaction.dart';
 import 'package:flutter/material.dart';
@@ -42,32 +43,7 @@ class MyHomePage extends StatelessWidget {
       body: Column(
         children: [
           TransactionList(dados),
-          Card(
-            child: Padding(
-              padding: const EdgeInsets.all(10),
-              child: Column(
-                children: [
-                  TextField(
-                    controller: titleControler,
-                    decoration: const InputDecoration(labelText: 'Titulo'),
-                  ),
-                  TextField(
-                    controller: valueControler,
-                    decoration: const InputDecoration(labelText: 'Valor'),
-                  ),
-                  Container(
-                      alignment: Alignment.bottomRight,
-                      margin: const EdgeInsets.only(top: 15),
-                      child: TextButton(
-                          onPressed: () {
-                            print(titleControler.text);
-                            print(valueControler.text);
-                          },
-                          child: const Text("Nova Transação")))
-                ],
-              ),
-            ),
-          )
+          TransactionForm(titleControler, valueControler)
         ],
       ),
       floatingActionButtonLocation:
