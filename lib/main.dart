@@ -31,8 +31,8 @@ class MyHomePage extends StatelessWidget {
         height: 35,
         shape: CircularNotchedRectangle(),
       ),
-      
-      body: const TransactionUser(),
+
+      body: const SingleChildScrollView(child: TransactionUser()),
 
       floatingActionButtonLocation:
           FloatingActionButtonLocation.miniCenterDocked,
