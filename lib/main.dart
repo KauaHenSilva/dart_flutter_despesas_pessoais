@@ -2,9 +2,7 @@ import 'package:dartflutter_despesas_pessoais/models/transaction.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -24,6 +22,8 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final titleControler = TextEditingController();
+    final valueControler = TextEditingController();
 
     final dados = [
       Transaction(id: 'id', title: 'title', value: 18.2, date: DateTime.now()),
@@ -40,63 +40,57 @@ class MyHomePage extends StatelessWidget {
         shape: CircularNotchedRectangle(),
       ),
       body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          const Card(child: Text("Ola")),
-          Column(
-            children: [
-              ...dados.map((e) => Card(
-                    child: Row(children: [
-                      Container(
-                          margin: const EdgeInsets.all(15),
-                          padding: const EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                              border:
-                                  Border.all(color: Colors.deepPurpleAccent),
-                              borderRadius: BorderRadius.circular(15)),
-                          child: Text(
-                            e.value.toString(),
-                            style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.deepPurpleAccent[100]),
-                          )),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            e.title,
-                            style: const TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          Text(
-                            DateFormat('d MMM y').format(e.date),
-                            style: const TextStyle(color: Colors.grey),
-                          )
-                        ],
-                      )
-                    ]),
-                  ))
-            ],
+          ...dados.map(
+            (e) => Card(
+                child: Row(
+              children: [
+                Container(
+                    margin: const EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                        border: Border.all(color: Colors.deepPurple),
+                        borderRadius: BorderRadius.circular(15)),
+                    child: Text('R\$ ${e.value.toStringAsFixed(2)}')),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      e.title,
+                      style: const TextStyle(
+                          fontSize: 16, fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      DateFormat('d MMM y').format(e.date),
+                      style: const TextStyle(color: Colors.grey),
+                    )
+                  ],
+                )
+              ],
+            )),
           ),
           Card(
             child: Padding(
               padding: const EdgeInsets.all(10),
               child: Column(
                 children: [
-                  const TextField(decoration: InputDecoration(labelText: 'Titulo')),
-                  const TextField(decoration: InputDecoration(labelText: 'Valor'),),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        TextButton(onPressed: () {}, child: const Text('Adicionar')),
-                      ],
-                    ),
-                  )
+                  TextField(
+                    controller: titleControler,
+                    decoration: const InputDecoration(labelText: 'Titulo'),
+                  ),
+                  TextField(
+                    controller: valueControler,
+                    decoration: const InputDecoration(labelText: 'Valor'),
+                  ),
+                  Container(
+                      alignment: Alignment.bottomRight,
+                      margin: const EdgeInsets.only(top: 15),
+                      child: TextButton(
+                          onPressed: () {
+                            print(titleControler.text);
+                            print(valueControler.text);
+                          },
+                          child: const Text("Nova Transação")))
                 ],
               ),
             ),
@@ -105,10 +99,10 @@ class MyHomePage extends StatelessWidget {
       ),
       floatingActionButtonLocation:
           FloatingActionButtonLocation.miniCenterDocked,
-      floatingActionButton: const FloatingActionButton(
-        onPressed: null,
-        shape: CircleBorder(),
-        child: Icon(Icons.add),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        shape: const CircleBorder(),
+        child: const Icon(Icons.add),
       ),
     );
   }
