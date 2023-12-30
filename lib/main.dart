@@ -21,7 +21,7 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
+
     return Scaffold(
       appBar: AppBar(
         title: const Text("Despesas Pessoais"),
@@ -31,11 +31,9 @@ class MyHomePage extends StatelessWidget {
         height: 35,
         shape: CircularNotchedRectangle(),
       ),
-      body: const Column(
-        children: [
-          TransactionUser()
-        ],
-      ),
+      
+      body: const TransactionUser(),
+
       floatingActionButtonLocation:
           FloatingActionButtonLocation.miniCenterDocked,
       floatingActionButton: FloatingActionButton(
