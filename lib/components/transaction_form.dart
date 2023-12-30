@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 
 class TransactionForm extends StatelessWidget {
-  final TextEditingController titleControler;
-  final TextEditingController valueControler;
-  const TransactionForm(this.titleControler, this.valueControler, {Key? key})
-      : super(key: key);
+  const TransactionForm({Key? key}) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {
+    
+    final titleControler = TextEditingController();
+    final valueControler = TextEditingController();
+
     return Card(
       child: Padding(
         padding: const EdgeInsets.all(10),

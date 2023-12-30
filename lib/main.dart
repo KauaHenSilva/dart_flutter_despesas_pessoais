@@ -1,6 +1,4 @@
-import 'package:dartflutter_despesas_pessoais/components/transaction_form.dart';
-import 'package:dartflutter_despesas_pessoais/components/transaction_list.dart';
-import 'package:dartflutter_despesas_pessoais/models/transaction.dart';
+import 'package:dartflutter_despesas_pessoais/components/transaction_user.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
@@ -23,14 +21,7 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final titleControler = TextEditingController();
-    final valueControler = TextEditingController();
-
-    final dados = [
-      Transaction(id: 'id', title: 'title', value: 18.2, date: DateTime.now()),
-      Transaction(id: 'id', title: 'title', value: 18.0, date: DateTime.now())
-    ];
-
+    
     return Scaffold(
       appBar: AppBar(
         title: const Text("Despesas Pessoais"),
@@ -40,10 +31,9 @@ class MyHomePage extends StatelessWidget {
         height: 35,
         shape: CircularNotchedRectangle(),
       ),
-      body: Column(
+      body: const Column(
         children: [
-          TransactionList(dados),
-          TransactionForm(titleControler, valueControler)
+          TransactionUser()
         ],
       ),
       floatingActionButtonLocation:
