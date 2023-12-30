@@ -86,7 +86,7 @@ class MyHomePage extends StatelessWidget {
               padding: const EdgeInsets.all(10),
               child: Column(
                 children: [
-                  const TextField(decoration: InputDecoration(labelText: '  ')),
+                  const TextField(decoration: InputDecoration(labelText: 'Titulo')),
                   const TextField(decoration: InputDecoration(labelText: 'Valor'),),
                   Padding(
                     padding: const EdgeInsets.only(top: 10),
