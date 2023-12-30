@@ -19,21 +19,17 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatefulWidget {
+class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key});
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  var dados = [
-    Transaction(id: 'id', title: 'title', value: 18.2, date: DateTime.now()),
-    Transaction(id: 'id', title: 'title', value: 18.0, date: DateTime.now())
-  ];
-
-  @override
   Widget build(BuildContext context) {
+
+    final dados = [
+      Transaction(id: 'id', title: 'title', value: 18.2, date: DateTime.now()),
+      Transaction(id: 'id', title: 'title', value: 18.0, date: DateTime.now())
+    ];
+
     return Scaffold(
       appBar: AppBar(
         title: const Text("Despesas Pessoais"),
@@ -90,7 +86,7 @@ class _MyHomePageState extends State<MyHomePage> {
               padding: const EdgeInsets.all(10),
               child: Column(
                 children: [
-                  const TextField(decoration: InputDecoration(labelText: 'Titulo')),
+                  const TextField(decoration: InputDecoration(labelText: '  ')),
                   const TextField(decoration: InputDecoration(labelText: 'Valor'),),
                   Padding(
                     padding: const EdgeInsets.only(top: 10),
