@@ -27,7 +27,7 @@ class TransactionForm extends StatelessWidget {
                 margin: const EdgeInsets.only(top: 15),
                 child: TextButton(
                     onPressed: () => onAddTransaction(
-                        titleControler.text, double.parse(valueControler.text)),
+                        titleControler.text, double.tryParse(valueControler.text) ?? 0),
                     child: const Text("Nova Transação")))
           ],
         ),

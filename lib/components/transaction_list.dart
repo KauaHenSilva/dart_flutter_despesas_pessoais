@@ -9,42 +9,36 @@ class TransactionList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 400,
-      child: ListView.builder(
-        itemCount: transactions.length,
-        itemBuilder: (context, index) => Column(
-          children: [
-            ...transactions.map(
-              (e) => Card(
-                  child: Row(
+        height: 400,
+        child: ListView.builder(
+          itemCount: transactions.length,
+          itemBuilder: (context, index) => Card(
+              child: Row(
+            children: [
+              Container(
+                  margin: const EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                      border: Border.all(color: Colors.deepPurple),
+                      borderRadius: BorderRadius.circular(15)),
+                  child: Text(
+                      'R\$ ${transactions[index].value.toStringAsFixed(2)}')),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                      margin: const EdgeInsets.all(10),
-                      padding: const EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                          border: Border.all(color: Colors.deepPurple),
-                          borderRadius: BorderRadius.circular(15)),
-                      child: Text('R\$ ${e.value.toStringAsFixed(2)}')),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        e.title,
-                        style: const TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.bold),
-                      ),
-                      Text(
-                        DateFormat('d MMM y').format(e.date),
-                        style: const TextStyle(color: Colors.grey),
-                      )
-                    ],
+                  Text(
+                    transactions[index].title,
+                    style: const TextStyle(
+                        fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    DateFormat('d MMM y').format(transactions[index].date),
+                    style: const TextStyle(color: Colors.grey),
                   )
                 ],
-              )),
-            ),
-          ],
-        ),
-      ),
-    );
+              )
+            ],
+          )),
+        ));
   }
 }

@@ -13,7 +13,7 @@ class TransactionUser extends StatefulWidget {
 }
 
 class _TransactionUserState extends State<TransactionUser> {
-  final db = [
+  final List<Transaction> db = [
     Transaction(id: 'id', title: 'title', value: 18.2, date: DateTime.now()),
   ];
 
@@ -27,13 +27,15 @@ class _TransactionUserState extends State<TransactionUser> {
     setState(() {
       db.add(newTransaction);
     });
-    
   }
 
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: [TransactionList(db), TransactionForm(_addTransactions)],
+      children: [
+        TransactionForm(_addTransactions),
+        TransactionList(db),
+      ],
     );
   }
 }
