@@ -46,7 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   _showModalTransaction(BuildContext context) {
     showModalBottomSheet(
-        context: context, builder: (_) => TransactionForm(_addTransactions));
+        context: context, builder: (_) => TransactionFormModal(_addTransactions));
   }
 
   @override
@@ -62,7 +62,6 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Column(
         children: [
-          // TransactionForm(_addTransactions),
           TransactionList(dbTransactions),
         ],
       ),
