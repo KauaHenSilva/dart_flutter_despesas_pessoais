@@ -32,7 +32,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> dbTransactions = [
-    Transaction(id: 'id', title: 'title', value: 18.2, date: DateTime.now()),
+    // Transaction(id: 'id', title: 'title', value: 18.2, date: DateTime.now()),
   ];
 
   _addTransactions(String title, double value) {
