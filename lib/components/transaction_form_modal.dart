@@ -20,6 +20,8 @@ class _TransactionFormModalState extends State<TransactionFormModal> {
     if (!(title.isEmpty || value.isNegative || value == 0)) {
       widget.onAddTransaction(title, value);
     }
+
+    Navigator.of(context).pop();
   }
 
   @override
