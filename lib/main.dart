@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:dartflutter_despesas_pessoais/components/transaction_form.dart';
+import 'package:dartflutter_despesas_pessoais/components/transaction_form_modal.dart';
 import 'package:dartflutter_despesas_pessoais/components/transaction_list.dart';
 import 'package:dartflutter_despesas_pessoais/models/transaction.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +28,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   final List<Transaction> dbTransactions = [
     Transaction(id: 'id', title: 'title', value: 18.2, date: DateTime.now()),
   ];
@@ -45,10 +44,13 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  _showModalTransaction(BuildContext context) {
+    showModalBottomSheet(
+        context: context, builder: (_) => TransactionForm(_addTransactions));
+  }
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         title: const Text("Despesas Pessoais"),
@@ -58,18 +60,16 @@ class _MyHomePageState extends State<MyHomePage> {
         height: 35,
         shape: CircularNotchedRectangle(),
       ),
-
       body: Column(
         children: [
           // TransactionForm(_addTransactions),
           TransactionList(dbTransactions),
         ],
       ),
-
       floatingActionButtonLocation:
           FloatingActionButtonLocation.miniCenterDocked,
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () => _showModalTransaction(context),
         shape: const CircleBorder(),
         child: const Icon(Icons.add),
       ),
