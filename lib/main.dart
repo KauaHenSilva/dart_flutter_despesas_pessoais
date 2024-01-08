@@ -32,8 +32,21 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> dbTransactions = [
-    // Transaction(id: 'id', title: 'title', value: 18.2, date: DateTime.now()),
+    Transaction(id: 'id', title: 'title', value: 18.2, date: DateTime.now().subtract(const Duration(days: 1))),
+    Transaction(id: 'id', title: 'title', value: 18.2, date: DateTime.now().subtract(const Duration(days: 2))),
+    Transaction(id: 'id', title: 'title', value: 18.2, date: DateTime.now().subtract(const Duration(days: 3))),
+    Transaction(id: 'id', title: 'title', value: 18.2, date: DateTime.now().subtract(const Duration(days: 4))),
+    Transaction(id: 'id', title: 'title', value: 18.2, date: DateTime.now().subtract(const Duration(days: 5))),
+    Transaction(id: 'id', title: 'title', value: 18.2, date: DateTime.now().subtract(const Duration(days: 6))),
+    Transaction(id: 'id', title: 'title', value: 18.2, date: DateTime.now().subtract(const Duration(days: 7))),
   ];
+
+  Iterable<Transaction> get _recentDbTransactions {
+    return dbTransactions.where((element) {
+      return element.date
+          .isAfter(DateTime.now().subtract(const Duration(days: 7)));
+    });
+  }
 
   _addTransactions(String title, double value) {
     final newTransaction = Transaction(
@@ -49,7 +62,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   _showModalTransaction(BuildContext context) {
     showModalBottomSheet(
-        context: context, builder: (_) => TransactionFormModal(_addTransactions));
+        context: context,
+        builder: (_) => TransactionFormModal(_addTransactions));
   }
 
   @override
