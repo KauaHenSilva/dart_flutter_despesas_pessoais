@@ -14,33 +14,25 @@ class TransactionList extends StatelessWidget {
             ? ListView.builder(
                 itemCount: dbTransactions.length,
                 itemBuilder: (context, index) => Card(
-                    child: Row(
-                  children: [
-                    Container(
-                        margin: const EdgeInsets.all(10),
+                  child: ListTile(
+                    leading: Container(
                         padding: const EdgeInsets.all(10),
                         decoration: BoxDecoration(
                             border: Border.all(color: Colors.deepPurple),
                             borderRadius: BorderRadius.circular(15)),
                         child: Text(
                             'R\$ ${dbTransactions[index].value.toStringAsFixed(2)}')),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          dbTransactions[index].title,
-                          style: const TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.bold),
-                        ),
-                        Text(
-                          DateFormat('d MMM y')
-                              .format(dbTransactions[index].date),
-                          style: const TextStyle(color: Colors.grey),
-                        )
-                      ],
-                    )
-                  ],
-                )),
+                    title: Text(
+                      dbTransactions[index].title,
+                    ),
+                    titleTextStyle: const TextStyle(
+                        fontSize: 16, fontWeight: FontWeight.bold),
+                    subtitle: Text(
+                      DateFormat('d MMM y').format(dbTransactions[index].date),
+                    ),
+                    subtitleTextStyle: const TextStyle(color: Colors.grey),
+                  ),
+                ),
               )
             : Column(
                 children: [
@@ -48,7 +40,9 @@ class TransactionList extends StatelessWidget {
                     alignment: Alignment.center,
                     child: const Text('Sem Transações'),
                   ),
-                  SizedBox(height: 200,child: Image.asset('assets/images/waiting.png'))
+                  SizedBox(
+                      height: 200,
+                      child: Image.asset('assets/images/waiting.png'))
                 ],
               ));
   }
