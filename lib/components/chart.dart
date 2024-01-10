@@ -24,7 +24,7 @@ class Chart extends StatelessWidget {
       }
 
       return {'day': DateFormat.E().format(weekDay)[0], 'value': totalValue};
-    });
+    }).reversed.toList();
   }
 
   double get totalValueWeek {
@@ -37,15 +37,19 @@ class Chart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          
-          children: groupedTransactions
-              .map((e) => ChartBar(
-                  sufWeekDay: e['day'].toString(),
-                  value: e['value'] as double,
-                  porcent: (e['value'] as double) / totalValueWeek))
-              .toList()),
+      elevation: 2,
+      margin: const EdgeInsets.all(5),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: groupedTransactions
+                .map((e) => ChartBar(
+                    sufWeekDay: e['day'].toString(),
+                    value: e['value'] as double,
+                    porcent: (e['value'] as double) / totalValueWeek))
+                .toList()),
+      ),
     );
   }
 }
