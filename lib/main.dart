@@ -32,42 +32,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final List<Transaction> dbTransactions = [
-    Transaction(
-        id: Random().nextDouble().toString(),
-        title: 'title',
-        value: 18.2,
-        date: DateTime.now().subtract(const Duration(days: 1))),
-    Transaction(
-        id: Random().nextDouble().toString(),
-        title: 'title',
-        value: 18.2,
-        date: DateTime.now().subtract(const Duration(days: 2))),
-    Transaction(
-        id: Random().nextDouble().toString(),
-        title: 'title',
-        value: 18.2,
-        date: DateTime.now().subtract(const Duration(days: 3))),
-    Transaction(
-        id: Random().nextDouble().toString(),
-        title: 'title',
-        value: 18.2,
-        date: DateTime.now().subtract(const Duration(days: 4))),
-    Transaction(
-        id: Random().nextDouble().toString(),
-        title: 'title',
-        value: 18.2,
-        date: DateTime.now().subtract(const Duration(days: 5))),
-    Transaction(
-        id: Random().nextDouble().toString(),
-        title: 'title',
-        value: 18.2,
-        date: DateTime.now().subtract(const Duration(days: 6))),
-    Transaction(
-        id: Random().nextDouble().toString(),
-        title: 'title',
-        value: 18.2,
-        date: DateTime.now().subtract(const Duration(days: 7))),
+  List<Transaction> dbTransactions = [
+
   ];
 
   List<Transaction> get _recentDbTransactions {
