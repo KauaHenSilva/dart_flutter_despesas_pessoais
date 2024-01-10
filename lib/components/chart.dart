@@ -1,3 +1,4 @@
+import 'package:dartflutter_despesas_pessoais/components/chart_bar.dart';
 import 'package:dartflutter_despesas_pessoais/models/transaction.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -13,11 +14,11 @@ class Chart extends StatelessWidget {
       double totalValue = 0;
 
       for (int x = 0; x < dbTransactions.length; x++) {
-        bool sameDay = DateTime.now().day == weekDay.day;
-        bool sameMonth = DateTime.now().month == weekDay.month;
-        bool sameYear = DateTime.now().year == weekDay.year;
+        bool sameDay = dbTransactions[x].date.day == weekDay.day;
+        bool sameMonth = dbTransactions[x].date.month == weekDay.month;
+        bool sameYear = dbTransactions[x].date.year == weekDay.year;
 
-        if (sameDay || sameMonth || sameYear) {
+        if (sameDay && sameMonth && sameYear) {
           totalValue += dbTransactions[x].value;
         }
       }
@@ -26,10 +27,25 @@ class Chart extends StatelessWidget {
     });
   }
 
+  double get totalValueWeek {
+    return groupedTransactions.fold(
+        0.0,
+        (previousValue, element) =>
+            previousValue += element['value'] as double);
+  }
+
   @override
   Widget build(BuildContext context) {
-    return const Card(
-      child: Row(children: []),
+    return Card(
+      child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          
+          children: groupedTransactions
+              .map((e) => ChartBar(
+                  sufWeekDay: e['day'].toString(),
+                  value: e['value'] as double,
+                  porcent: (e['value'] as double) / totalValueWeek))
+              .toList()),
     );
   }
 }

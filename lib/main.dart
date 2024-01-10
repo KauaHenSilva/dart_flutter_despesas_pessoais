@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:dartflutter_despesas_pessoais/components/chart.dart';
 import 'package:dartflutter_despesas_pessoais/components/transaction_form_modal.dart';
 import 'package:dartflutter_despesas_pessoais/components/transaction_list.dart';
 import 'package:dartflutter_despesas_pessoais/models/transaction.dart';
@@ -32,20 +33,48 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> dbTransactions = [
-    Transaction(id: 'id', title: 'title', value: 18.2, date: DateTime.now().subtract(const Duration(days: 1))),
-    Transaction(id: 'id', title: 'title', value: 18.2, date: DateTime.now().subtract(const Duration(days: 2))),
-    Transaction(id: 'id', title: 'title', value: 18.2, date: DateTime.now().subtract(const Duration(days: 3))),
-    Transaction(id: 'id', title: 'title', value: 18.2, date: DateTime.now().subtract(const Duration(days: 4))),
-    Transaction(id: 'id', title: 'title', value: 18.2, date: DateTime.now().subtract(const Duration(days: 5))),
-    Transaction(id: 'id', title: 'title', value: 18.2, date: DateTime.now().subtract(const Duration(days: 6))),
-    Transaction(id: 'id', title: 'title', value: 18.2, date: DateTime.now().subtract(const Duration(days: 7))),
+    Transaction(
+        id: 'id',
+        title: 'title',
+        value: 18.2,
+        date: DateTime.now().subtract(const Duration(days: 1))),
+    Transaction(
+        id: 'id',
+        title: 'title',
+        value: 18.2,
+        date: DateTime.now().subtract(const Duration(days: 2))),
+    Transaction(
+        id: 'id',
+        title: 'title',
+        value: 18.2,
+        date: DateTime.now().subtract(const Duration(days: 3))),
+    Transaction(
+        id: 'id',
+        title: 'title',
+        value: 18.2,
+        date: DateTime.now().subtract(const Duration(days: 4))),
+    Transaction(
+        id: 'id',
+        title: 'title',
+        value: 18.2,
+        date: DateTime.now().subtract(const Duration(days: 5))),
+    Transaction(
+        id: 'id',
+        title: 'title',
+        value: 18.2,
+        date: DateTime.now().subtract(const Duration(days: 6))),
+    Transaction(
+        id: 'id',
+        title: 'title',
+        value: 18.2,
+        date: DateTime.now().subtract(const Duration(days: 7))),
   ];
 
-  Iterable<Transaction> get _recentDbTransactions {
+  List<Transaction> get _recentDbTransactions {
     return dbTransactions.where((element) {
       return element.date
           .isAfter(DateTime.now().subtract(const Duration(days: 7)));
-    });
+    }).toList();
   }
 
   _addTransactions(String title, double value) {
@@ -79,6 +108,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Column(
         children: [
+          Chart(_recentDbTransactions),
           TransactionList(dbTransactions),
         ],
       ),
