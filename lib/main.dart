@@ -34,37 +34,37 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> dbTransactions = [
     Transaction(
-        id: 'id',
+        id: Random().nextDouble().toString(),
         title: 'title',
         value: 18.2,
         date: DateTime.now().subtract(const Duration(days: 1))),
     Transaction(
-        id: 'id',
+        id: Random().nextDouble().toString(),
         title: 'title',
         value: 18.2,
         date: DateTime.now().subtract(const Duration(days: 2))),
     Transaction(
-        id: 'id',
+        id: Random().nextDouble().toString(),
         title: 'title',
         value: 18.2,
         date: DateTime.now().subtract(const Duration(days: 3))),
     Transaction(
-        id: 'id',
+        id: Random().nextDouble().toString(),
         title: 'title',
         value: 18.2,
         date: DateTime.now().subtract(const Duration(days: 4))),
     Transaction(
-        id: 'id',
+        id: Random().nextDouble().toString(),
         title: 'title',
         value: 18.2,
         date: DateTime.now().subtract(const Duration(days: 5))),
     Transaction(
-        id: 'id',
+        id: Random().nextDouble().toString(),
         title: 'title',
         value: 18.2,
         date: DateTime.now().subtract(const Duration(days: 6))),
     Transaction(
-        id: 'id',
+        id: Random().nextDouble().toString(),
         title: 'title',
         value: 18.2,
         date: DateTime.now().subtract(const Duration(days: 7))),
@@ -89,6 +89,14 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  _removeTransaction(String id) {
+    setState(() {
+      dbTransactions.removeWhere((element) {
+        return element.id == id;
+      });
+    });
+  }
+
   _showModalTransaction(BuildContext context) {
     showModalBottomSheet(
         context: context,
@@ -109,7 +117,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Column(
         children: [
           Chart(_recentDbTransactions),
-          TransactionList(dbTransactions),
+          TransactionList(dbTransactions, onRemove: _removeTransaction),
         ],
       ),
       floatingActionButtonLocation:
