@@ -16,23 +16,38 @@ class ChartBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text(value.toStringAsFixed(2)),
-        Stack(
-          children: [
-            Container(
-              height: 60,
-              width: 10,
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.deepPurple),
-                borderRadius: BorderRadius.circular(15),
-              ),
-            ),
-            FractionallySizedBox(
-              
-            )
-          ],
+        Text(
+          'R\$${value.toStringAsFixed(2)}',
+          style: const TextStyle(fontSize: 12),
         ),
-        Text(sufWeekDay),
+        SizedBox(
+          height: 60,
+          width: 10,
+          child: Stack(
+            alignment: Alignment.bottomCenter,
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.deepPurple),
+                  borderRadius: BorderRadius.circular(15),
+                ),
+              ),
+              FractionallySizedBox(
+                heightFactor: porcent.isNaN ? 0 : porcent,
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.deepPurple,
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                ),
+              )
+            ],
+          ),
+        ),
+        Text(
+          sufWeekDay,
+          style: const TextStyle(fontSize: 12),
+        ),
       ],
     );
   }

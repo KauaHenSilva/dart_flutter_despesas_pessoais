@@ -8,8 +8,6 @@ class TransactionList extends StatelessWidget {
   const TransactionList(this.dbTransactions, {Key? key, required this.onRemove})
       : super(key: key);
 
-  
-
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -47,6 +45,9 @@ class TransactionList extends StatelessWidget {
                   Container(
                     alignment: Alignment.center,
                     child: const Text('Sem Transações'),
+                  ),
+                  const SizedBox(
+                    height: 10,
                   ),
                   SizedBox(
                       height: 200,
