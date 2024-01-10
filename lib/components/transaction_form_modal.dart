@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class TransactionFormModal extends StatefulWidget {
-  final Function(String, double) onAddTransaction;
+  final Function(String, double, DateTime) onAddTransaction;
 
   const TransactionFormModal(this.onAddTransaction, {Key? key})
       : super(key: key);
@@ -21,7 +21,7 @@ class _TransactionFormModalState extends State<TransactionFormModal> {
     final double value = double.tryParse(valueControler.text) ?? 0;
 
     if (!(title.isEmpty || value.isNegative || value == 0)) {
-      widget.onAddTransaction(title, value);
+      widget.onAddTransaction(title, value, _dateTime);
     }
 
     Navigator.of(context).pop();

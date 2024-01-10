@@ -32,9 +32,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  List<Transaction> dbTransactions = [
-
-  ];
+  List<Transaction> dbTransactions = [];
 
   List<Transaction> get _recentDbTransactions {
     return dbTransactions.where((element) {
@@ -43,12 +41,13 @@ class _MyHomePageState extends State<MyHomePage> {
     }).toList();
   }
 
-  _addTransactions(String title, double value) {
+  _addTransactions(String title, double value, DateTime time) {
     final newTransaction = Transaction(
-        id: Random().nextDouble().toString(),
-        title: title,
-        value: value,
-        date: DateTime.now());
+      id: Random().nextDouble().toString(),
+      title: title,
+      value: value,
+      date: time,
+    );
 
     setState(() {
       dbTransactions.add(newTransaction);
