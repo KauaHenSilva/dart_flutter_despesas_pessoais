@@ -70,19 +70,37 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    const bottomAppBar = BottomAppBar(
+      height: 35,
+      shape: CircularNotchedRectangle(),
+    );
+
+    final appBar = AppBar(
+      title: const Text("Despesas Pessoais"),
+      backgroundColor: Colors.deepPurpleAccent,
+    );
+
+    final labelSize = MediaQuery.of(context).size.height -
+        MediaQuery.of(context).padding.top -
+        bottomAppBar.height! -
+        appBar.preferredSize.height;
+
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Despesas Pessoais"),
-        backgroundColor: Colors.deepPurpleAccent,
-      ),
-      bottomNavigationBar: const BottomAppBar(
-        height: 35,
-        shape: CircularNotchedRectangle(),
-      ),
+      appBar: appBar,
+      bottomNavigationBar: bottomAppBar,
       body: Column(
         children: [
-          Chart(_recentDbTransactions),
-          TransactionList(dbTransactions, onRemove: _removeTransaction),
+          SizedBox(
+            height: labelSize * 0.2,
+            child: Chart(_recentDbTransactions),
+          ),
+          SizedBox(
+            height: labelSize * 0.8,
+            child: TransactionList(
+              dbTransactions,
+              onRemove: _removeTransaction,
+            ),
+          ),
         ],
       ),
       floatingActionButtonLocation:

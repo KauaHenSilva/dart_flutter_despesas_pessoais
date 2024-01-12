@@ -16,15 +16,15 @@ class ChartBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(
-          height: 20,
+        Padding(
+          padding: const EdgeInsets.only(bottom: 5),
           child: Text(
             'R\$${value.toStringAsFixed(2)}',
             style: const TextStyle(fontSize: 12),
           ),
         ),
         SizedBox(
-          height: 60,
+          height: 70,
           width: 10,
           child: Stack(
             alignment: Alignment.bottomCenter,
@@ -47,9 +47,12 @@ class ChartBar extends StatelessWidget {
             ],
           ),
         ),
-        Text(
-          sufWeekDay,
-          style: const TextStyle(fontSize: 12),
+        Padding(
+          padding: const EdgeInsets.only(bottom: 5.0),
+          child: Text(
+            sufWeekDay,
+            style: const TextStyle(fontSize: 12),
+          ),
         ),
       ],
     );

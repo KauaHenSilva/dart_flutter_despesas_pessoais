@@ -28,16 +28,15 @@ class _TransactionFormModalState extends State<TransactionFormModal> {
   }
 
   _showPickerCalendar() {
-    
     showDatePicker(
-            context: context,
-            firstDate: DateTime.now().subtract(const Duration(days: 364 * 4)),
-            lastDate: DateTime.now())
-        .then((value) {
-          setState(() {
-            _dateTime = value as DateTime;
-          });
-        });
+      context: context,
+      firstDate: DateTime.now().subtract(const Duration(days: 364 * 4)),
+      lastDate: DateTime.now(),
+    ).then((value) {
+      setState(() {
+        _dateTime = value as DateTime;
+      });
+    });
   }
 
   @override
@@ -67,11 +66,13 @@ class _TransactionFormModalState extends State<TransactionFormModal> {
               ),
             ),
             Container(
-                alignment: Alignment.bottomRight,
-                margin: const EdgeInsets.only(top: 15),
-                child: ElevatedButton(
-                    onPressed: _formatToDb,
-                    child: const Text("Nova Transação")))
+              alignment: Alignment.bottomRight,
+              margin: const EdgeInsets.only(top: 15),
+              child: TextButton(
+                onPressed: _formatToDb,
+                child: const Text("Nova Transação"),
+              ),
+            )
           ],
         ),
       ),
