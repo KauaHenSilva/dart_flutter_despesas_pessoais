@@ -86,19 +86,26 @@ class _MyHomePageState extends State<MyHomePage> {
       title: const Text("Despesas Pessoais"),
       backgroundColor: Colors.deepPurpleAccent,
       actions: [
-        if(isLandscape)
-        Switch(
-          value: isChart,
-          onChanged: (value) => setState(() {
-            isChart = value;
-          }),
-        )
+        if (isLandscape)
+          Switch(
+            value: isChart,
+            onChanged: (value) => setState(() {
+              isChart = value;
+            }),
+            thumbIcon: MaterialStateProperty.resolveWith<Icon?>(
+                (Set<MaterialState> states) {
+              if (states.contains(MaterialState.selected)) {
+                return const Icon(Icons.bar_chart_rounded);
+              }
+              return const Icon(Icons.list); // All other states will use the default thumbIcon.
+            }),
+          )
       ],
     );
 
     final labelSize = MediaQuery.of(context).size.height -
         MediaQuery.of(context).padding.top -
-        appBar.preferredSize.height - 
+        appBar.preferredSize.height -
         bottomAppBar.height!;
 
     return Scaffold(
