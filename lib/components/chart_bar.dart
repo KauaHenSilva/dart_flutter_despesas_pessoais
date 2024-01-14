@@ -20,9 +20,12 @@ class ChartBar extends StatelessWidget {
           Container(
             alignment: Alignment.center,
             height: constraints.maxHeight * 0.2,
-            child: Text(
-              'R\$${value.toStringAsFixed(2)}',
-              style: const TextStyle(fontSize: 12),
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Text(
+                'R\$${value.toStringAsFixed(2)}',
+                style: const TextStyle(fontSize: 12),
+              ),
             ),
           ),
           SizedBox(
