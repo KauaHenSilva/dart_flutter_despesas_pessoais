@@ -11,49 +11,54 @@ class TransactionList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-        child: dbTransactions.isNotEmpty
-            ? ListView.builder(
-                itemCount: dbTransactions.length,
-                itemBuilder: (context, index) => Card(
-                  child: ListTile(
-                    leading: Container(
-                      padding: const EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.deepPurple),
-                        borderRadius: BorderRadius.circular(15),
-                      ),
-                      child: Text(
-                          'R\$ ${dbTransactions[index].value.toStringAsFixed(2)}'),
+      child: dbTransactions.isNotEmpty
+          ? ListView.builder(
+              itemCount: dbTransactions.length,
+              itemBuilder: (context, index) => Card(
+                child: ListTile(
+                  leading: Container(
+                    padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.deepPurple),
+                      borderRadius: BorderRadius.circular(15),
                     ),
-                    title: Text(
-                      dbTransactions[index].title,
+                    child: Text(
+                      'R\$ ${dbTransactions[index].value.toStringAsFixed(2)}',
                     ),
-                    titleTextStyle: const TextStyle(
-                        fontSize: 16, fontWeight: FontWeight.bold),
-                    subtitle: Text(
-                      DateFormat('d MMM y').format(dbTransactions[index].date),
-                    ),
-                    subtitleTextStyle: const TextStyle(color: Colors.grey),
-                    trailing: IconButton(
-                      onPressed: () => onRemove(dbTransactions[index].id),
-                      icon: const Icon(Icons.delete_forever_outlined),
-                    ),
+                  ),
+                  title: Text(
+                    dbTransactions[index].title,
+                  ),
+                  titleTextStyle: const TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  subtitle: Text(
+                    DateFormat('d MMM y').format(dbTransactions[index].date),
+                  ),
+                  subtitleTextStyle: const TextStyle(color: Colors.grey),
+                  trailing: IconButton(
+                    onPressed: () => onRemove(dbTransactions[index].id),
+                    icon: const Icon(Icons.delete_forever_outlined),
                   ),
                 ),
-              )
-            : Column(
-                children: [
-                  Container(
-                    alignment: Alignment.center,
-                    child: const Text('Sem Transações'),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  SizedBox(
-                      height: 200,
-                      child: Image.asset('assets/images/waiting.png'))
-                ],
-              ));
+              ),
+            )
+          : Column(
+              children: [
+                Container(
+                  alignment: Alignment.center,
+                  child: const Text('Sem Transações'),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                SizedBox(
+                  height: 200,
+                  child: Image.asset('assets/images/waiting.png'),
+                )
+              ],
+            ),
+    );
   }
 }
