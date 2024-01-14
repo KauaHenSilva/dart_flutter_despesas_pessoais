@@ -19,14 +19,14 @@ class ChartBar extends StatelessWidget {
         children: [
           Container(
             alignment: Alignment.center,
-            height: constraints.maxHeight * 0.1,
+            height: constraints.maxHeight * 0.2,
             child: Text(
               'R\$${value.toStringAsFixed(2)}',
               style: const TextStyle(fontSize: 12),
             ),
           ),
           SizedBox(
-            height: constraints.maxHeight * 0.8,
+            height: constraints.maxHeight * 0.6,
             width: 10,
             child: Stack(
               alignment: Alignment.bottomCenter,
@@ -51,7 +51,7 @@ class ChartBar extends StatelessWidget {
           ),
           Container(
             alignment: Alignment.center,
-            height: constraints.maxHeight * 0.1,
+            height: constraints.maxHeight * 0.2,
             child: Text(
               sufWeekDay,
               style: const TextStyle(fontSize: 12),
