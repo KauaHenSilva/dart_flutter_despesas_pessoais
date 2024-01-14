@@ -17,12 +17,14 @@ class TransactionList extends StatelessWidget {
                 itemBuilder: (context, index) => Card(
                   child: ListTile(
                     leading: Container(
-                        padding: const EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                            border: Border.all(color: Colors.deepPurple),
-                            borderRadius: BorderRadius.circular(15)),
-                        child: Text(
-                            'R\$ ${dbTransactions[index].value.toStringAsFixed(2)}')),
+                      padding: const EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.deepPurple),
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      child: Text(
+                          'R\$ ${dbTransactions[index].value.toStringAsFixed(2)}'),
+                    ),
                     title: Text(
                       dbTransactions[index].title,
                     ),
