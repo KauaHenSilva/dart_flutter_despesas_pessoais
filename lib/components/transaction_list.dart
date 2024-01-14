@@ -44,20 +44,16 @@ class TransactionList extends StatelessWidget {
                 ),
               ),
             )
-          : Column(
-              children: [
-                Container(
-                  alignment: Alignment.center,
-                  child: const Text('Sem Transações'),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                SizedBox(
-                  height: 200,
-                  child: Image.asset('assets/images/waiting.png'),
-                )
-              ],
+          : LayoutBuilder(
+              builder: (context, constraints) => Column(
+                children: [
+                  SizedBox(height: constraints.maxHeight * 0.1,),
+                  SizedBox(
+                    height: constraints.maxHeight * 0.4,
+                    child: Image.asset('assets/images/waiting.png'),
+                  )
+                ],
+              ),
             ),
     );
   }
