@@ -70,8 +70,13 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+  bool isChart = false;
+
   @override
   Widget build(BuildContext context) {
+    final isLandscape =
+        MediaQuery.of(context).orientation == Orientation.landscape;
+
     const bottomAppBar = BottomAppBar(
       height: 35,
       shape: CircularNotchedRectangle(),
@@ -80,6 +85,14 @@ class _MyHomePageState extends State<MyHomePage> {
     final appBar = AppBar(
       title: const Text("Despesas Pessoais"),
       backgroundColor: Colors.deepPurpleAccent,
+      actions: [
+        Switch(
+          value: isChart,
+          onChanged: (value) => setState(() {
+            isChart = value;
+          }),
+        )
+      ],
     );
 
     final labelSize = MediaQuery.of(context).size.height -
@@ -90,21 +103,35 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: appBar,
       bottomNavigationBar: bottomAppBar,
-      body: Column(
-        children: [
-          SizedBox(
-            height: labelSize * 0.2,
-            child: Chart(_recentDbTransactions),
-          ),
-          SizedBox(
-            height: labelSize * 0.8,
-            child: TransactionList(
-              dbTransactions,
-              onRemove: _removeTransaction,
-            ),
-          ),
-        ],
-      ),
+      body: !isLandscape
+          ? Column(
+              children: [
+                SizedBox(
+                  height: labelSize * 0.2,
+                  child: Chart(_recentDbTransactions),
+                ),
+                SizedBox(
+                  height: labelSize * 0.8,
+                  child: TransactionList(
+                    dbTransactions,
+                    onRemove: _removeTransaction,
+                  ),
+                ),
+              ],
+            )
+          : !isChart
+              ? Container(
+                  alignment: Alignment.center,
+                  height: labelSize * 1,
+                  child: TransactionList(
+                    dbTransactions,
+                    onRemove: _removeTransaction,
+                  ),
+                )
+              : SizedBox(
+                  height: labelSize * 1,
+                  child: Chart(_recentDbTransactions),
+                ),
       floatingActionButtonLocation:
           FloatingActionButtonLocation.miniCenterDocked,
       floatingActionButton: FloatingActionButton(
