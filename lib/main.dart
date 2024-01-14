@@ -97,12 +97,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
     final labelSize = MediaQuery.of(context).size.height -
         MediaQuery.of(context).padding.top -
-        bottomAppBar.height! -
-        appBar.preferredSize.height;
+        appBar.preferredSize.height - 
+        bottomAppBar.height!;
 
     return Scaffold(
       appBar: appBar,
-      bottomNavigationBar: bottomAppBar,
       body: !isLandscape
           ? Column(
               children: [
@@ -120,8 +119,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             )
           : !isChart
-              ? Container(
-                  alignment: Alignment.center,
+              ? SizedBox(
                   height: labelSize * 1,
                   child: TransactionList(
                     dbTransactions,
@@ -132,13 +130,16 @@ class _MyHomePageState extends State<MyHomePage> {
                   height: labelSize * 1,
                   child: Chart(_recentDbTransactions),
                 ),
+      bottomNavigationBar: bottomAppBar,
+      floatingActionButton: !isChart
+          ? FloatingActionButton(
+              onPressed: () => _showModalTransaction(context),
+              shape: const CircleBorder(),
+              child: const Icon(Icons.add),
+            )
+          : null,
       floatingActionButtonLocation:
-          FloatingActionButtonLocation.miniCenterDocked,
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => _showModalTransaction(context),
-        shape: const CircleBorder(),
-        child: const Icon(Icons.add),
-      ),
+          !isChart ? FloatingActionButtonLocation.miniCenterDocked : null,
     );
   }
 }
