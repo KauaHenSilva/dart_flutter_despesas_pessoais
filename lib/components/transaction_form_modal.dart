@@ -54,6 +54,8 @@ class _TransactionFormModalState extends State<TransactionFormModal> {
                   decoration: const InputDecoration(labelText: 'Titulo'),
                 ),
                 TextField(
+                  keyboardType:
+                      const TextInputType.numberWithOptions(decimal: true),
                   controller: valueControler,
                   decoration: const InputDecoration(labelText: 'Valor'),
                 ),
@@ -63,8 +65,9 @@ class _TransactionFormModalState extends State<TransactionFormModal> {
                     children: [
                       Text(DateFormat('dd/MM/y').format(_dateTime)),
                       TextButton(
-                          onPressed: _showPickerCalendar,
-                          child: const Icon(Icons.calendar_month_outlined)),
+                        onPressed: _showPickerCalendar,
+                        child: const Icon(Icons.calendar_month_outlined),
+                      ),
                     ],
                   ),
                 ),
