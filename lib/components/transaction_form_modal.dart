@@ -41,39 +41,44 @@ class _TransactionFormModalState extends State<TransactionFormModal> {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Padding(
-        padding: const EdgeInsets.all(10),
-        child: Column(
-          children: [
-            TextField(
-              controller: titleControler,
-              decoration: const InputDecoration(labelText: 'Titulo'),
+    return Padding(
+      padding: MediaQuery.of(context).viewInsets,
+      child: Card(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                TextField(
+                  controller: titleControler,
+                  decoration: const InputDecoration(labelText: 'Titulo'),
+                ),
+                TextField(
+                  controller: valueControler,
+                  decoration: const InputDecoration(labelText: 'Valor'),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 20.0),
+                  child: Row(
+                    children: [
+                      Text(DateFormat('dd/MM/y').format(_dateTime)),
+                      TextButton(
+                          onPressed: _showPickerCalendar,
+                          child: const Icon(Icons.calendar_month_outlined)),
+                    ],
+                  ),
+                ),
+                Container(
+                  alignment: Alignment.bottomRight,
+                  margin: const EdgeInsets.only(top: 15),
+                  child: TextButton(
+                    onPressed: _formatToDb,
+                    child: const Text("Nova Transação"),
+                  ),
+                )
+              ],
             ),
-            TextField(
-              controller: valueControler,
-              decoration: const InputDecoration(labelText: 'Valor'),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 20.0),
-              child: Row(
-                children: [
-                  Text(DateFormat('dd/MM/y').format(_dateTime)),
-                  TextButton(
-                      onPressed: _showPickerCalendar,
-                      child: const Icon(Icons.calendar_month_outlined)),
-                ],
-              ),
-            ),
-            Container(
-              alignment: Alignment.bottomRight,
-              margin: const EdgeInsets.only(top: 15),
-              child: TextButton(
-                onPressed: _formatToDb,
-                child: const Text("Nova Transação"),
-              ),
-            )
-          ],
+          ),
         ),
       ),
     );
