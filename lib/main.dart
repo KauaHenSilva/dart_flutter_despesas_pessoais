@@ -86,6 +86,7 @@ class _MyHomePageState extends State<MyHomePage> {
       title: const Text("Despesas Pessoais"),
       backgroundColor: Colors.deepPurpleAccent,
       actions: [
+        if(isLandscape)
         Switch(
           value: isChart,
           onChanged: (value) => setState(() {
@@ -106,11 +107,11 @@ class _MyHomePageState extends State<MyHomePage> {
           ? Column(
               children: [
                 SizedBox(
-                  height: labelSize * 0.2,
+                  height: labelSize * 0.3,
                   child: Chart(_recentDbTransactions),
                 ),
                 SizedBox(
-                  height: labelSize * 0.8,
+                  height: labelSize * 0.7,
                   child: TransactionList(
                     dbTransactions,
                     onRemove: _removeTransaction,
