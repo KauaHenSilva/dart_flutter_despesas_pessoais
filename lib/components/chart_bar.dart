@@ -14,47 +14,51 @@ class ChartBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(bottom: 5),
-          child: Text(
-            'R\$${value.toStringAsFixed(2)}',
-            style: const TextStyle(fontSize: 12),
+    return LayoutBuilder(
+      builder: (context, constraints) => Column(
+        children: [
+          Container(
+            alignment: Alignment.center,
+            height: constraints.maxHeight * 0.15,
+            child: Text(
+              'R\$${value.toStringAsFixed(2)}',
+              style: const TextStyle(fontSize: 12),
+            ),
           ),
-        ),
-        SizedBox(
-          height: 70,
-          width: 10,
-          child: Stack(
-            alignment: Alignment.bottomCenter,
-            children: [
-              Container(
-                decoration: BoxDecoration(
-                  border: Border.all(color: Colors.deepPurple),
-                  borderRadius: BorderRadius.circular(15),
-                ),
-              ),
-              FractionallySizedBox(
-                heightFactor: porcent.isNaN ? 0 : porcent,
-                child: Container(
+          SizedBox(
+            height: constraints.maxHeight * 0.7,
+            width: 10,
+            child: Stack(
+              alignment: Alignment.bottomCenter,
+              children: [
+                Container(
                   decoration: BoxDecoration(
-                    color: Colors.deepPurple,
+                    border: Border.all(color: Colors.deepPurple),
                     borderRadius: BorderRadius.circular(15),
                   ),
                 ),
-              )
-            ],
+                FractionallySizedBox(
+                  heightFactor: porcent.isNaN ? 0 : porcent,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.deepPurple,
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                  ),
+                )
+              ],
+            ),
           ),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(bottom: 5.0),
-          child: Text(
-            sufWeekDay,
-            style: const TextStyle(fontSize: 12),
+          Container(
+            alignment: Alignment.center,
+            height: constraints.maxHeight * 0.15,
+            child: Text(
+              sufWeekDay,
+              style: const TextStyle(fontSize: 12),
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

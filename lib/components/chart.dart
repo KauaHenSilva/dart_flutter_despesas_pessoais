@@ -44,10 +44,13 @@ class Chart extends StatelessWidget {
         child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: groupedTransactions
-                .map((e) => ChartBar(
+                .map(
+                  (e) => ChartBar(
                     sufWeekDay: e['day'].toString(),
                     value: e['value'] as double,
-                    porcent: (e['value'] as double) / totalValueWeek))
+                    porcent: (e['value'] as double) / totalValueWeek,
+                  ),
+                )
                 .toList()),
       ),
     );
