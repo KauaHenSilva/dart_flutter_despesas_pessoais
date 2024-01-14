@@ -45,14 +45,17 @@ class TransactionList extends StatelessWidget {
               ),
             )
           : LayoutBuilder(
-              builder: (context, constraints) => Column(
-                children: [
-                  SizedBox(height: constraints.maxHeight * 0.1,),
-                  SizedBox(
-                    height: constraints.maxHeight * 0.4,
-                    child: Image.asset('assets/images/waiting.png'),
-                  )
-                ],
+              builder: (context, constraints) => Container(
+                alignment: Alignment.center,
+                child: Column(
+                  children: [
+                    SizedBox(height: constraints.maxHeight * 0.1),
+                    SizedBox(
+                      height: constraints.maxHeight * 0.4,
+                      child: Image.asset('assets/images/waiting.png'),
+                    )
+                  ],
+                ),
               ),
             ),
     );
