@@ -29,9 +29,9 @@ class Chart extends StatelessWidget {
 
   double get totalValueWeek {
     return groupedTransactions.fold(
-        0.0,
-        (previousValue, element) =>
-            previousValue += element['value'] as double);
+      0.0,
+      (previousValue, element) => previousValue += element['value'] as double,
+    );
   }
 
   @override
@@ -42,16 +42,17 @@ class Chart extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: groupedTransactions
-                .map(
-                  (e) => ChartBar(
-                    sufWeekDay: e['day'].toString(),
-                    value: e['value'] as double,
-                    porcent: (e['value'] as double) / totalValueWeek,
-                  ),
-                )
-                .toList()),
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: groupedTransactions
+              .map(
+                (e) => ChartBar(
+                  sufWeekDay: e['day'].toString(),
+                  value: e['value'] as double,
+                  porcent: (e['value'] as double) / totalValueWeek,
+                ),
+              )
+              .toList(),
+        ),
       ),
     );
   }
