@@ -40,6 +40,12 @@ Flutter --version:
     ```
     flutter pub get
     ```
+    
+4. **Construa a Aplicação:**
+
+    ```
+    flutter build
+    ```
 
 ### Usage
 
