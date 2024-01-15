@@ -1,5 +1,5 @@
-import 'package:dartflutter_despesas_pessoais/components/chart_bar.dart';
-import 'package:dartflutter_despesas_pessoais/models/transaction.dart';
+import '../components/chart_bar.dart';
+import '../models/transaction.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
