@@ -1,4 +1,4 @@
-import 'package:dartflutter_despesas_pessoais/models/transaction.dart';
+import '../models/transaction.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 

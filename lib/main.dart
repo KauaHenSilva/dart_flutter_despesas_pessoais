@@ -1,9 +1,9 @@
 import 'dart:math';
 
-import 'package:dartflutter_despesas_pessoais/components/chart.dart';
-import 'package:dartflutter_despesas_pessoais/components/transaction_form_modal.dart';
-import 'package:dartflutter_despesas_pessoais/components/transaction_list.dart';
-import 'package:dartflutter_despesas_pessoais/models/transaction.dart';
+import './components/chart.dart';
+import './components/transaction_form_modal.dart';
+import './components/transaction_list.dart';
+import './models/transaction.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
