@@ -83,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     final appBar = AppBar(
       title: const Text("Despesas Pessoais"),
-      backgroundColor: Colors.deepPurpleAccent,
+      centerTitle: true,
       actions: [
         if (isLandscape)
           Switch(

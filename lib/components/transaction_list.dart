@@ -36,7 +36,6 @@ class TransactionList extends StatelessWidget {
                   subtitle: Text(
                     DateFormat('d MMM y').format(dbTransactions[index].date),
                   ),
-                  subtitleTextStyle: const TextStyle(color: Colors.grey),
                   trailing: IconButton(
                     onPressed: () => onRemove(dbTransactions[index].id),
                     icon: const Icon(Icons.delete_forever_outlined),
