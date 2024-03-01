@@ -1,5 +1,6 @@
 # DartFlutter_DespesasPessoais
 
+<<<<<<< HEAD
 Um projeto desenvolvido em Flutter e Dart para demonstração de conhecimento.
 
 ### 🚀 Inicializando
@@ -8,6 +9,18 @@ Siga as instruções abaixo para ter o projeto em execução localmente.
 
 ### 📋 Pré-requisitos
 
+=======
+## 🎓 App em Execução (Web)
+
+> [FlutterDartDespesasPessoiasApp](https://dartflutterpreviewweb.vercel.app/)
+
+### 🚀 Iniciativa do Projeto
+
+Um projeto desenvolvido em Flutter e Dart para demonstração de conhecimento.
+
+### 📋 Pré-requisitos para execução
+
+>>>>>>> c220ed6806e7979f919b816c140b4c20fd30bd17
 Certifique-se de ter o Flutter e o Dart instalados. Se não tiver, siga as instruções em [flutter.dev](https://flutter.dev/docs/get-started/install) ou [youtubeTuturial](https://www.youtube.com/watch?v=7Kpd6eprz4k) para a instalação.
 
 Flutter --version:
@@ -18,8 +31,15 @@ Flutter --version:
   Engine • revision 3f3e560236
   Tools • Dart 3.2.3 • DevTools 2.28.4
   ```
+<<<<<<< HEAD
   
 
+=======
+
+Tenha um ambiente de trabalho como o [Visual Estudio Code](https://code.visualstudio.com/).
+
+Dentro desse abiente (vscode) instale as exetenções [Dart](https://marketplace.visualstudio.com/items?itemName=Dart-Code.dart-code) e [Flutter](https://marketplace.visualstudio.com/items?itemName=Dart-Code.flutter).
+>>>>>>> c220ed6806e7979f919b816c140b4c20fd30bd17
 
 ### 🔧 Implantação
 
@@ -52,4 +72,20 @@ Flutter --version:
 Agora o projeto está configurado. Você pode executá-lo com o seguinte comando:
 
     flutter run
+<<<<<<< HEAD
+=======
+
+Ao Observar a tela:
+
+  ```
+    [1]: 'Despositivo' (Android)
+    [2]: 'Despositivo' (ios)
+    [3]: Windows (windows)
+    [4]: Linux (linux)
+    [5]: Chrome (chrome)
+    [6]: Edge (edge)
+  ```
+
+Pressione a melhor opção para o seu caso.
+>>>>>>> c220ed6806e7979f919b816c140b4c20fd30bd17
 
