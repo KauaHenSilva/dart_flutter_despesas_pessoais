@@ -1,12 +1,14 @@
 # DartFlutter_DespesasPessoais
 
+## 🎓 App em Execução (Web)
+
+> [FlutterDartDespesasPessoiasApp](https://dartflutterpreviewweb.vercel.app/)
+
+### 🚀 Iniciativa do Projeto
+
 Um projeto desenvolvido em Flutter e Dart para demonstração de conhecimento.
 
-### 🚀 Inicializando
-
-Siga as instruções abaixo para ter o projeto em execução localmente.
-
-### 📋 Pré-requisitos
+### 📋 Pré-requisitos para execulção
 
 Certifique-se de ter o Flutter e o Dart instalados. Se não tiver, siga as instruções em [flutter.dev](https://flutter.dev/docs/get-started/install) ou [youtubeTuturial](https://www.youtube.com/watch?v=7Kpd6eprz4k) para a instalação.
 
@@ -18,8 +20,10 @@ Flutter --version:
   Engine • revision 3f3e560236
   Tools • Dart 3.2.3 • DevTools 2.28.4
   ```
-  
 
+Tenha um ambiente de trabalho como o [Visual Estudio Code](https://code.visualstudio.com/).
+
+Dentro desse abiente (vscode) instale as exetenções [Dart](https://marketplace.visualstudio.com/items?itemName=Dart-Code.dart-code) e [Flutter](https://marketplace.visualstudio.com/items?itemName=Dart-Code.flutter).
 
 ### 🔧 Implantação
 
