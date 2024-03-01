@@ -28,10 +28,10 @@ class TransactionList extends StatelessWidget {
                   ),
                   title: Text(
                     dbTransactions[index].title,
-                  ),
-                  titleTextStyle: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   subtitle: Text(
                     DateFormat('d MMM y').format(dbTransactions[index].date),
