@@ -1,0 +1,8 @@
+* linguist-vendored
+*.js linguist-vendored=false
+*.http linguist-vendored=false
+*.cc linguist-vendored=false
+*.cpp linguist-vendored=false
+*.h linguist-vendored=false
+*.rc linguist-vendored=false
+*.dart linguist-detectable=true
