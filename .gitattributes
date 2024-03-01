@@ -33,7 +33,10 @@
 *.sdf     binary
 
 #.java linguist-language=Dart
-*.kt linguist-language=Dart
-*.swift linguist-language=Dart
-*.m linguist-language=Dart
-*.h linguist-language=Dart
+.kt linguist-language=Dart
+.swift linguist-language=Dart
+.m linguist-language=Dart
+.h linguist-language=Dart
+.c linguist-language=Dart
+.cc linguist-language=Dart
+.cpp linguist-language=Dart
