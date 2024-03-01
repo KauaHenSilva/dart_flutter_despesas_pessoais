@@ -4,6 +4,8 @@
 
 > [FlutterDartDespesasPessoiasApp](https://dartflutterpreviewweb.vercel.app/)
 
+> ⚠️ **Nota:** Este aplicativo foi desenvolvido para dispositivos móveis e algumas fontes podem não ser exibidas corretamente em outros ambientes.
+
 ### 🚀 Iniciativa do Projeto
 
 Um projeto desenvolvido em Flutter e Dart para demonstração de conhecimento.
