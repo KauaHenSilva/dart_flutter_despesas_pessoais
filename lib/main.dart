@@ -15,10 +15,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Despesas Pessoais',
-      theme: ThemeData(
-        fontFamily: 'OpenSans',
-        brightness: Brightness.dark,
-      ),
+      theme: ThemeData.light(),
+      darkTheme: ThemeData.dark(),
       home: const MyHomePage(),
     );
   }
