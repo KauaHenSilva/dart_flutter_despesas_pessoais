@@ -1,2 +1,3 @@
 web/* linguist-vendored
 windows/* linguist-vendored
+windows/runner/* linguist-vendored
