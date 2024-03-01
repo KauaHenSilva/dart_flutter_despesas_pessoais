@@ -1,1 +1,2 @@
-lib/* linguist-vendored
+web/* linguist-vendored
+windows/* linguist-vendored
