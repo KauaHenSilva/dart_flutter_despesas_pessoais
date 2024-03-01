@@ -57,3 +57,16 @@ Agora o projeto está configurado. Você pode executá-lo com o seguinte comando
 
     flutter run
 
+Ao Observar a tela:
+
+  ```
+    [1]: 'Despositivo' (Android)
+    [2]: 'Despositivo' (ios)
+    [3]: Windows (windows)
+    [4]: Linux (linux)
+    [5]: Chrome (chrome)
+    [6]: Edge (edge)
+  ```
+
+Pressione a melhor opção para o seu caso.
+
