@@ -2,7 +2,7 @@
 
 ### 🎓 App em Execução (Web)
 
-> [FlutterDartDespesasPessoiasApp](https://dartflutterpreviewweb.vercel.app/)
+> Link: [Flutter Dart Despesas Pessoias App Web](https://despesas-pessoais.vercel.app/)
 
 > ⚠️ **Nota:** Este aplicativo foi desenvolvido para dispositivos móveis e algumas fontes podem não ser exibidas corretamente em outros ambientes.
 
