@@ -1,12 +1,24 @@
 import 'dart:math';
 
+import 'package:flutter/services.dart';
+
 import './components/chart.dart';
 import './components/transaction_form_modal.dart';
 import './components/transaction_list.dart';
 import './models/transaction.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(const MyApp());
+void main() {
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness: Brightness.dark,
+      systemNavigationBarColor: Colors.transparent,
+      systemNavigationBarIconBrightness: Brightness.dark,
+    ),
+  );
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -73,8 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
-    final isLandscape =
-        mediaQuery.orientation == Orientation.landscape;
+    final isLandscape = mediaQuery.orientation == Orientation.landscape;
 
     const bottomAppBar = BottomAppBar(
       height: 35,
@@ -96,7 +107,8 @@ class _MyHomePageState extends State<MyHomePage> {
               if (states.contains(MaterialState.selected)) {
                 return const Icon(Icons.bar_chart_rounded);
               }
-              return const Icon(Icons.list); // All other states will use the default thumbIcon.
+              return const Icon(Icons
+                  .list); // All other states will use the default thumbIcon.
             }),
           )
       ],
