@@ -4,38 +4,42 @@ import 'package:url_launcher/url_launcher.dart';
 class MyDrawer extends StatelessWidget {
   const MyDrawer({Key? key}) : super(key: key);
 
+  Widget _creatItem(IconData icon, String label, void Function() onTap) {
+    return ListTile(
+      leading: Icon(icon),
+      title: Text(label),
+      onTap: onTap,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    final double statusBarHeight = MediaQuery.of(context).padding.top;
+    final MediaQueryData mediaQuery = MediaQuery.of(context);
+    final double paddingTop = mediaQuery.padding.top;
+
     return Drawer(
-      child: Column(
+      child: ListView(
+        padding: EdgeInsets.only(top: paddingTop),
         children: [
-          Padding(
-            padding: EdgeInsets.only(top: statusBarHeight),
-            child: ListTile(
-              leading: CircleAvatar(
-                backgroundImage: NetworkImage(
-                    'https://avatars.githubusercontent.com/KauaHenSilva'),
+          ListTile(
+            title: const Text(
+              'Kaua Henrique Da Silva',
+              overflow: TextOverflow.clip,
+            ),
+            subtitle: const Text('KauaHenSilva'),
+            leading: ClipOval(
+              child: Image.network(
+                'https://avatars.githubusercontent.com/KauaHenSilva',
               ),
-              title: const Text('Kauã Henrique Silva'),
-              subtitle: const Text('KauaHenSilva'),
             ),
           ),
           const Divider(),
-          ListTile(
-            leading: const Icon(Icons.home),
-            title: const Text('Início'),
-            onTap: () {
-              Navigator.of(context).pop();
-            },
-          ),
-          ListTile(
-            leading: const Icon(Icons.favorite),
-            title: const Text('GitHub'),
-            onTap: () {
-              abrirUrl();
-            },
-          ),
+          _creatItem(Icons.home, 'Home', () {
+            Navigator.of(context).pop();
+          }),
+          _creatItem(Icons.favorite, 'GitHub', () {
+            abrirUrl();
+          }),
         ],
       ),
     );
@@ -43,7 +47,7 @@ class MyDrawer extends StatelessWidget {
 }
 
 void abrirUrl() async {
-  const url = 'https://github.com/KauaHenSilva/';
+  const url = 'https://github.com/KauaHenSilva';
   if (await canLaunchUrl(Uri.parse(url))) {
     await launchUrl(Uri.parse(url));
   } else {
