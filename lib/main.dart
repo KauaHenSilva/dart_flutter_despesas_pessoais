@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:dartflutter_despesas_pessoais/components/my_drawer.dart';
 import 'package:flutter/services.dart';
 
 import './components/chart.dart';
@@ -148,6 +149,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   height: labelSize * 1,
                   child: Chart(_recentDbTransactions),
                 ),
+                drawer: MyDrawer(),
       bottomNavigationBar: bottomAppBar,
       floatingActionButton: !isChart
           ? FloatingActionButton(
