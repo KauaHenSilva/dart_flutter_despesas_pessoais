@@ -43,7 +43,7 @@ class MyDrawer extends StatelessWidget {
 }
 
 void abrirUrl() async {
-  const url = 'https://github.com/KauaHenSilva';
+  const url = 'https://github.com/KauaHenSilva/';
   if (await canLaunchUrl(Uri.parse(url))) {
     await launchUrl(Uri.parse(url));
   } else {
