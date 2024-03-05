@@ -35,7 +35,7 @@ class MyDrawer extends StatelessWidget {
           ),
           const Divider(),
           _creatItem(Icons.home, 'Home', () {
-            Navigator.of(context).pop();
+            Navigator.of(context).pushReplacementNamed('/');
           }),
           _creatItem(Icons.favorite, 'GitHub', () {
             abrirUrl();

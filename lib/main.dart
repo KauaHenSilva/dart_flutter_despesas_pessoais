@@ -3,10 +3,10 @@ import 'dart:math';
 import 'package:dartflutter_despesas_pessoais/components/my_drawer.dart';
 import 'package:flutter/services.dart';
 
-import './components/chart.dart';
-import './components/transaction_form_modal.dart';
-import './components/transaction_list.dart';
-import './models/transaction.dart';
+import 'package:dartflutter_despesas_pessoais/components/chart.dart';
+import 'package:dartflutter_despesas_pessoais/components/transaction_form_modal.dart';
+import 'package:dartflutter_despesas_pessoais/components/transaction_list.dart';
+import 'package:dartflutter_despesas_pessoais/models/transaction.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -149,7 +149,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   height: labelSize * 1,
                   child: Chart(_recentDbTransactions),
                 ),
-                drawer: MyDrawer(),
+      drawer: MyDrawer(),
       bottomNavigationBar: bottomAppBar,
       floatingActionButton: !isChart
           ? FloatingActionButton(
